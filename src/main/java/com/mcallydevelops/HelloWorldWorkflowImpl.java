@@ -18,6 +18,10 @@ public class HelloWorldWorkflowImpl implements HelloWorldWorkflow {
     public String getGreeting(String name) {
         // This is the entry point to the Workflow.
         // If there were other Activity methods they would be orchestrated here or from within other Activities.
-        return format.composeGreeting(name);
+        StringBuilder stringBuilder = new StringBuilder();
+        for(int i = 0; i < 10; ++i) {
+            stringBuilder.append(format.composeGreeting(String.valueOf(i)));
+        }
+        return stringBuilder.toString();
     }
 }
